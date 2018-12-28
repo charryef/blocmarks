@@ -14,7 +14,8 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'rspec/rails'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/all'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -23,7 +24,7 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
-  
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
