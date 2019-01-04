@@ -1,4 +1,7 @@
 class TopicsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
     @topics = Topic.all
   end
@@ -9,6 +12,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @topic.user = current_user
   end
 
   def create
