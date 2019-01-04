@@ -59,7 +59,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
-   gem 'shoulda'
+   gem 'shoulda-matchers', '4.0.0.rc1'
    gem 'faker'
    gem 'factory_bot_rails'
    gem 'pry-rails'
