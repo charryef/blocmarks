@@ -15,14 +15,21 @@
       <%= link_to "Blocmarks", root_path, class: "navbar-brand" %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><%= link_to "About", about_path %></li>
-        <li class="nav-item"><%= link_to "Topics", topics_path %></li>
       </ul>
       <div class="my-2 my-lg-0">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li class="nav-item"><strong><%= current_user.name %>'s Blocmarks</strong>|</li>
-            <li class="nav-item"><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li class="nav-item"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.name %>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item"><%= link_to "Edit Profile", edit_user_registration_path %></a>
+                  <a class="dropdown-item"><%= link_to "My Blocmarks", topics_path %></a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
+                </div>
+              </div>
           <% else %>
             <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path %></li>
             <li class="nav-item"><%= link_to "Sign In", new_user_session_path %></li>

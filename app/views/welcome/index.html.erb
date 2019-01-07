@@ -3,6 +3,7 @@
   <p>A social bookmarking app that allows users to bookmark URLs via email, manage and share them with friends.</p>
   <p>
     <% if user_signed_in? %>
+      <%= link_to "My Blocmarks", topics_path, class: 'btn btn-primary' %>
       <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-primary' %>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
     <% else %>
