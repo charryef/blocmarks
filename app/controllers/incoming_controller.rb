@@ -20,7 +20,6 @@ class IncomingController < ApplicationController
       topic: @topic
     )
 
+    head 200
   end
-
-  head 200
 end
