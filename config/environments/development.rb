@@ -65,11 +65,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => "sandboxc0823b8b14d74eafbff112b06c21d09a.mailgun.org",
+    :address => "smtp.mailgun.org",
     :user_name => "charryef@gmail.com",
-    :password => "xLYq3uhA5nQEj4z"
+    :password => "xLYq3uhA5nQEj4z",
+    :domain => "sandboxc0823b8b14d74eafbff112b06c21d09a.mailgun.org",
+    :authentication => :plain,
+    :content_type => 'text/html'
   }
 end
