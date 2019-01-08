@@ -91,4 +91,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = "cfuller-blocmarks.herokuapp.com"
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandboxc0823b8b14d74eafbff112b06c21d09a.mailgun.org",
+    :user_name => "charryef@gmail.com",
+    :password => "xLYq3uhA5nQEj4z"
+  }
 end
