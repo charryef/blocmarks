@@ -12,7 +12,7 @@ class IncomingController < ApplicationController
     end
 
     if @topic.nil?
-      @topic = Topic.create!((title: params[:title], user_id: @user))
+      @topic = Topic.create!(title: params[:title], user_id: @user.id)
     end
 
     Bookmark.create!(
