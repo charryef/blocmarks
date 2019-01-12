@@ -18,3 +18,8 @@
 body {
   background-color: #C0AB8E;
 }
+
+body { padding-top: 40px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}
