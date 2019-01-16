@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :topics, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
   validates :password, presence: true, length: { minimum: 6 }
@@ -13,4 +14,7 @@ class User < ApplicationRecord
              uniqueness: { case_sensitive: false },
              length: { minimum: 3, maximum: 254 }
 
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
+  end
 end

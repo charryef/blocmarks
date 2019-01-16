@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_28_092805) do
+ActiveRecord::Schema.define(version: 2019_01_14_202909) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.string "url"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2018_12_28_092805) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_bookmarks_on_topic_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bookmark_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookmark_id"], name: "index_likes_on_bookmark_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -34,11 +43,15 @@ ActiveRecord::Schema.define(version: 2018_12_28_092805) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

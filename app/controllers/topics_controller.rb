@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
     @topic.user = current_user
 
     if @topic.save
-      flash[:notice] = "Topic was saved successfully."
+      flash[:notice] = "\"#{@topic.title}\" was saved successfully."
       redirect_to topic_path(@topic)
     else
       flash[:error] = "There was an error creating the topic. Please try again."
@@ -39,7 +39,7 @@ class TopicsController < ApplicationController
     @topic.assign_attributes(topic_params)
 
     if @topic.save
-      flash[:notice] = "Topic was updated"
+      flash[:notice] = "\"#{@topic.title}\" was updated"
       redirect_to @topic
     else
       flash[:error] = "There was an error saving the topic. Please try again."
