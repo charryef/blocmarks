@@ -12,7 +12,7 @@
 
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-      <%= link_to "Blocmarks", root_path, class: "navbar-brand" %>
+      <strong><%= link_to "Blocmarks", root_path, class: "navbar-brand" %></strong>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><%= link_to "About", about_path %></li>
       </ul>
@@ -25,8 +25,8 @@
                 </button>
                 <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
                   Signed in as: <strong><%= current_user.email %></strong>
-                  <a class="dropdown-item"><%= link_to "Edit Profile", edit_user_registration_path %></a>
-                  <a class="dropdown-item"><%= link_to "My Blocmarks", topics_path %></a>
+                  <a class="dropdown-item"><%= link_to "My Profile", user_path(current_user) %></a>
+                  <a class="dropdown-item"><%= link_to "Account", edit_user_registration_path %></a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
                 </div>

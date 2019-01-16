@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :topics, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
