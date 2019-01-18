@@ -15,11 +15,11 @@ class BookmarkPolicy
   end
 
   def update?
-    user.present? && (user.id == bookmark.user)
+    user.present? && (user == bookmark.topic.user)
   end
 
   def destroy?
-    user.present? && (user.id == bookmark.user)
+    user.present? && (user == bookmark.topic.user)
   end
 
   class Scope
