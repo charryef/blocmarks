@@ -55,6 +55,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
  gem 'devise'
  gem 'bootstrap-sass', '3.2.0.2'
  gem 'pundit'
+ gem 'font-awesome-rails'
 
  group :development, :test do
    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
