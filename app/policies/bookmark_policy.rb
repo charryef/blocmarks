@@ -15,10 +15,23 @@ class BookmarkPolicy
   end
 
   def update?
-    user.present? && (User.find(Topic.find(bookmark.topic_id).user_id) == user)
+    user.present? && (user.id == bookmark.user)
   end
 
   def destroy?
-    user.present? && (User.find(Topic.find(bookmark.topic_id).user_id) == user)
+    user.present? && (user.id == bookmark.user)
+  end
+
+  class Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      scope.all
+    end
   end
 end
