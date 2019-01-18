@@ -101,8 +101,8 @@ Rails.application.configure do
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => "sandboxc0823b8b14d74eafbff112b06c21d09a.mailgun.org",
-    :user_name => "charryef@gmail.com",
-    :password => "xLYq3uhA5nQEj4z"
+    :domain => "cfuller-blocmarks.herokuapp.com",
+    :user_name => "postmaster@sandbox53a6b538608c41be80ef8f0d02661756.mailgun.org",
+    :password => "a207ee9925459a568f39e28f7d8e313e-060550c6-467ddee9"
   }
 end
