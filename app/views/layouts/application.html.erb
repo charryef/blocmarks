@@ -9,30 +9,34 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light justify-content-between">
       <strong><%= link_to "Blocmarks", root_path, class: "navbar-brand" %></strong>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><%= link_to "About", about_path %></li>
-      </ul>
-      <div class="my-2 my-lg-0">
-        <ul class="nav navbar-nav navbar-right">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
           <% if user_signed_in? %>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= current_user.name %>
-                </button>
-                <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                  Signed in as: <strong><%= current_user.email %></strong>
-                  <a class="dropdown-item"><%= link_to "My Profile", user_path(current_user) %></a>
-                  <a class="dropdown-item"><%= link_to "Account", edit_user_registration_path %></a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
-                </div>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.name %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Account", edit_user_registration_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
+            </li>
           <% else %>
             <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li> &nbsp; | &nbsp; </li>
             <li class="nav-item"><%= link_to "Sign In", new_user_session_path %></li>
           <% end %>
         </ul>
