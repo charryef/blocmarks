@@ -92,17 +92,19 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.delivery_method = :smtp
-
   config.action_mailer.default_url_options = { host: 'cfuller-blocmarks.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "cfuller-blocmarks.herokuapp.com",
-    :user_name => "postmaster@sandbox53a6b538608c41be80ef8f0d02661756.mailgun.org",
-    :password => "a207ee9925459a568f39e28f7d8e313e-060550c6-467ddee9"
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "cfuller-blocitoff.herokuapp.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 end
