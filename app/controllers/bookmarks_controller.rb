@@ -13,8 +13,8 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
     authorize @bookmark
     @bookmark.url = params[:bookmark][:url]
-    @bookmark.description = params[:bookmark]
     @topic = Topic.find(params[:topic_id])
+    @bookmark.topic = @topic
 
     if @bookmark.save
       flash[:notice] = "Bookmark was saved."
